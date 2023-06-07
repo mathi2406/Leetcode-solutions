@@ -1,0 +1,25 @@
+class Solution {
+    public static int[] twoSum(int[] numbers, int target) {
+        Arrays.sort(numbers);
+        for(int i=0;i<numbers.length;i++){
+            for(int j=i+1;j<numbers.length;j++){
+                if(numbers[i]+numbers[j]==target)
+                return new int[] {i+1,j+1};
+            }
+        }
+         return new int[] {};
+    }
+   public static void main(String args[]){
+       Scanner sc=new Scanner(System.in);
+       int size=sc.nextInt();
+       int[] arr=new int[size];
+       
+       for(int i=0;i<size;i++){
+         arr[i]=sc.nextInt();
+       }
+       int target=sc.nextInt();
+       Solution s=new Solution();
+       int[] res=s.twoSum(arr,target);
+       System.out.println(Arrays.toString(res));
+   }
+}

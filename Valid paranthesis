@@ -1,0 +1,31 @@
+class Solution {
+    public static boolean isValid(String s) {
+        Stack<Character> sym=new Stack<>();
+    for (char c : s.toCharArray()) {
+           
+            if (c == '(' || c == '{' || c == '[') {
+                sym.push(c);
+            }
+          
+            else if (c == ')' && !sym.isEmpty() && sym.peek() == '(') {
+                sym.pop();
+            } else if (c == '}' && !sym.isEmpty() && sym.peek() == '{') {
+                sym.pop();
+            } else if (c == ']' && !sym.isEmpty() && sym.peek() == '[') {
+                sym.pop();
+            }
+          
+            else {
+                return false;
+            }
+        }
+        return sym.isEmpty();
+    }
+    public static void main(String args[]){
+    Scanner sc=new Scanner(System.in);
+    String s=sc.nextLine();
+    Solution sol=new Solution();
+    boolean res=sol.isValid(s);
+    System.out.println(res);
+    }
+}
